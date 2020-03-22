@@ -1,0 +1,17 @@
+.mytext-orange{
+  color: #fd7e14  ;
+}
+.mytext-blue{
+  color: #01233f;
+}
+.filtre-valid{
+  background-color: #fd7e14 ;
+  color: white;
+}
+.card_car{
+	border:1px solid #01233F;
+}
+.card_car:hover{
+	border:3px solid #FF7500;
+	transform: scale(1.1);
+}

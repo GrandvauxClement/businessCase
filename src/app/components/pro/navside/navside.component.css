@@ -1,0 +1,26 @@
+.btn-navpro{
+  background-color: white;
+  color:#01233f ;
+}
+.btn-navpro:hover{
+  background-color: #fd7e14;
+  color:white;
+}
+#deconect{
+  border-bottom: #fd7e14 solid 2px;
+}
+img{
+  height: 20px;
+}
+.btn-deconnect{
+  background-color: white;
+  color:#01233f ;
+}
+.btn-deconnect:hover{
+  text-decoration: underline  #fd7e14 3px;
+}
+
+.active{
+  background-color: #fd7e14;
+  color:white;
+}

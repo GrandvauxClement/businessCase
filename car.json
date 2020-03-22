@@ -1,0 +1,84 @@
+{
+  "car": [
+    {
+      "id": 1,
+      "marque": "Audi",
+      "modele": "A5",
+      "carburant": "diesel",
+      "annee": 2012,
+      "kilometrage": 60000,
+      "prix": 25000,
+      "image": "assets/img/voiture/Audi/A5/audiA5_devant.jpg",
+      "imageCarousel": [
+        "assets/img/voiture/Audi/A5/audiA5_devant.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_arriere.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_profil.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_tableau_de_bord.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_volant.jpg"
+      ],
+      "idClientContent": 1,
+      "dateAjout": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "marque": "Dacia",
+      "modele": "Prestige",
+      "carburant": "essence",
+      "annee": 2015,
+      "kilometrage": 40000,
+      "prix": 12500,
+      "image": "assets/img/voiture/dacia/duster_prestige/1.jpg",
+      "imageCarousel": [
+        "assets/img/voiture/dacia/duster_prestige/1.jpg",
+        "assets/img/voiture/dacia/duster_prestige/2.jpg",
+        "assets/img/voiture/dacia/duster_prestige/3.jpg",
+        "assets/img/voiture/dacia/duster_prestige/4.jpg",
+        "assets/img/voiture/dacia/duster_prestige/5.jpg"
+      ],
+      "idClientContent": 1,
+      "dateAjout": "2020-03-23T18:25:43.511Z"
+    },
+    {
+      "id": 3,
+      "marque": "Audi",
+      "modele": "A5",
+      "carburant": "diesel",
+      "annee": 2012,
+      "kilometrage": 60000,
+      "prix": 25000,
+      "image": "assets/img/voiture/Audi/A5/audiA5_devant.jpg",
+      "imageCarousel": [
+        "assets/img/voiture/Audi/A5/audiA5_devant.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_arriere.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_profil.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_tableau_de_bord.jpg",
+        "assets/img/voiture/Audi/A5/AudiA5_volant.jpg"
+      ],
+      "idClientContent": 2,
+      "dateAjout": "2020-04-23T18:25:43.511Z"
+    },
+    {
+      "marque": "Peugeot",
+      "modele": "308 gti",
+      "carburant": "Electrique",
+      "annee": 2019,
+      "kilometrage": 60000,
+      "prix": 14500,
+      "image": "assets/img/voiture/renault/clio4.jpg",
+      "idClientContent": 1,
+      "dateAjout": "2020-03-18T11:02:03.913Z",
+      "id": 4
+    }
+  ],
+  "pro": [
+    {
+      "id": 1,
+      "nom": "Garage-test",
+      "numSiret": "78544536684512",
+      "numTel": "0384253729",
+      "adresse": "10 Place de la gare 38000 Grenoble",
+      "email": "pro.test@hotmail.com",
+      "password": "passwordTest"
+    }
+  ]
+}

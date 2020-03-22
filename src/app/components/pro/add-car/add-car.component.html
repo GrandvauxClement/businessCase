@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <app-navside></app-navside>
+    </div>
+    <div class="col">
+      <h2> Ajouter une nouvelle voiture </h2>
+      <form #carForm="ngForm" (ngSubmit)="addCar()">
+        <div class="form-group">
+            <label for="marque"> Marque </label>
+            <select class="form-control" id="marque" name="marque" required [(ngModel)]="carAdd.marque" #marque="ngModel">
+              <option *ngFor =" let marque of marques " [ngValue]="marque"> {{marque}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="modele"> Modèle</label>
+          <input class="form-control" id="modele" name="modele" required [(ngModel)]="carAdd.modele" #modele="ngModel">
+          <div [hidden]="modele.valid" class="alert alert-danger"> Le modèle est requis</div>
+        </div>
+        <div class="form-group">
+          <label for="carburant"> Carburant </label>
+          <select class="form-control" id="carburant" name="carburant" required [(ngModel)]="carAdd.carburant" #carburant="ngModel">
+            <option *ngFor =" let carburant of carburants " [ngValue]="carburant"> {{carburant}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="annee"> Année de fabrication </label>
+          <input class="form-control" type="number" id="annee" name="annee" required [(ngModel)]="carAdd.annee" #annee="ngModel">
+          <div [hidden]="annee.valid" class="alert alert-danger"> Le modèle est requis</div>
+        </div>
+        <div class="form-group">
+          <label for="kilometrage"> Kilométrage au compteur en km </label>
+          <input class="form-control" type="number" id="kilometrage" name="kilometrage" required [(ngModel)]="carAdd.kilometrage" #kilometrage="ngModel">
+          <div [hidden]="kilometrage.valid" class="alert alert-danger"> Le kilométrage est requis</div>
+        </div>
+        <div class="form-group">
+          <label for="prix"> Prix en euros </label>
+          <input class="form-control" type="number" id="prix" name="prix" required [(ngModel)]="carAdd.prix" #prix="ngModel">
+          <div [hidden]="prix.valid" class="alert alert-danger"> Le prix est requis</div>
+        </div>
+        <div class="form-group">
+          <label for="image"> Image Présentation (son lien ) </label>
+          <input class="form-control" type="text" id="image" name="image" required [(ngModel)]="carAdd.image" #image="ngModel">
+          <div [hidden]="image.valid" class="alert alert-danger"> Une image est requise</div>
+        </div>
+        <input [disabled]="!carForm.valid" class="btn btn-success" type="submit">
+      </form>
+    </div>

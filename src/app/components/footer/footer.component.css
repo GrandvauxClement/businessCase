@@ -1,0 +1,21 @@
+footer {
+  background-color: #01233f;
+}
+button {
+  background-color: #fd7e14;
+}
+button:hover {
+  cursor: pointer;
+}
+.logo_footer{
+	height: 40px;
+	color: white;
+}
+.logo_footer_reseau{
+	filter: grayscale(100%);
+	height: 50px;
+}
+.logo_footer_reseau:hover{
+	filter: none;
+}
+

@@ -1,0 +1,18 @@
+.borders{
+  border: 2px solid #fd7e14 ;
+  border-radius: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+img {
+  height: 5vh;
+}
+.selected:hover {
+  background-color: #fd7e14;
+  color: white;
+  text-decoration: underline #fd7e14 2px ;
+  cursor: pointer;
+}
+.mytext-orange{
+  color: #fd7e14  ;
+}

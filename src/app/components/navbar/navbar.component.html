@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/img/logo/logo_final.png" class="logo ml-4"></a>
+  <button class="navbar-toggler " type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"> </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" [collapse]="isCollapsed">
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+
+
+      <a [routerLink]="['/pro-home']" class="nav-link text-white d-flex align-items-end">
+         <!-- data-toggle="modal" data-target="#modalLRForm" > -->
+        <img src="assets/img/logo/profil_noir.png" class="logo_nav pr-4 d-lg-block d-none">
+        ACCES PRO
+      </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-end ml-lg-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="assets/img/logo/coeur.png" class="logo_nav pr-4 d-lg-block d-none">
+          MES FAVORIS
+      </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-end ml-lg-4 mr-lg-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="assets/img/logo/phone_orange.png" class="logo_nav pr-4 d-lg-block d-none">
+          CONTACT
+      </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="modal fade " id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content modal-style">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <!-- <ul class="nav nav-tabs md-tabs bg-primary " role="tablist">
+          <li class="nav-item bg-primary"> -->
+            <a class="nav-link active  text-white text-center" data-toggle="tab" role="tab"><i class="fas fa-user mr-1 text-orange "></i>
+              Identifiez-vous ! </a>
+         <!--  </li>
+        </ul> -->
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix text-orange"></i>
+                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate" placeholder="Your email">
+                <!-- <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label> -->
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix text-orange"></i>
+                <input type="password" id="modalLRInput11" placeholder="Your password" class="form-control form-control-sm validate">
+                <!-- <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label> -->
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-orange" [routerLink]="['/pro-home']">Log in</button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options  text-md-right mt-1">
+                <p class="text-white">Vous possédez votre propre garage ? <a href="#" class="text-white" >N'hésitez plus et inscrivez-vous le centre auto'Ccas est fait pour vour </a></p>
+                <p class="text-white"><a href="#" class="text-white">Mot de passe oublié?</a></p>
+              </div>
+              <button type="button" class="btn btn-orange waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container mt-5">
+ <div class="row">
+    <div class="col-md-8">
+      <!-- <mdb-carousel class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+        <mdb-carousel-item>
+          <img class="d-block w-100" src="{{car.imageCarousel[0]}}" alt="First slide">
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <img class="d-block w-100" src="{{car.imageCarousel[1]}}" alt="Second slide">
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <img class="d-block w-100" src="{{car.imageCarousel[2]}}" alt="Third slide">
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <img class="d-block w-100" src="{{car.imageCarousel[3]}}" alt="fourth slide">
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <img class="d-block w-100" src="{{car.imageCarousel[4]}}" alt="fifth slide">
+        </mdb-carousel-item>
+      </mdb-carousel> -->
+    </div>
+
+    <div *ngIf="isLoading===true"> En cours de chargement .....
+    </div>
+    <div class="col-md-4 " *ngIf="isLoading===false">
+      <h2 class="mytext-orange">Information Générales</h2>
+      <h5 class="mytext-blue">Année: {{car.annee}}</h5>
+      <h5 class="mytext-blue">Kilométrage : {{car.kilometrage}} km </h5>
+      <h5 class="mytext-blue">Marque : {{car.marque}}  </h5>
+      <h5 class="mytext-blue">Modèle : {{car.modele}} </h5>
+      <h5 class="mytext-blue">Carburant : {{car.modele}} </h5>
+      <h5 class="mytext-blue">Référence : #25879</h5>
+      <h3 class="mytext-orange"> Prix : {{car.prix}} €</h3>
+      <h5 class="mytext-blue">Ajouter aux favoris </h5>
+    </div>
+  </div>
+  <div class="row">
+      <h5>Description : </h5>
+      <p> Du Blabla pour remplir la place en attendant d avoir une vrai base de donné avec des description réelle de voiture qui presente de facon complète
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quia nobis cum!
+         Suscipit fugiat iure placeat nam explicabo sunt nihil, voluptatum sint voluptate numquam cupiditate maxime quam qui quaerat beatae?</p>
+         <button class="btn m-auto"> Entammer les négociations </button>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+.fond_menu{
+  /* height: 80vh; */
+  background: linear-gradient(90deg,#fff0, #ffffffd9), url('/assets/img/cuba.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 70vh;
+}
+/* .sous-nav{
+ margin-top: 7%;
+} */
+.filtre-menu{
+  color:  #01233f ;
+  background-color: #fff0;
+  border: solid 2px  #01233f;
+}
+.filtre-menu:hover{
+ background-color:  #01233f ;
+ color: white;
+  border: solid 2px  #01233f;
+}
+.filtre-valid{
+  background-color: #fd7e14 ;
+  color: white;
+}
+.mytext-orange{
+  color: #fd7e14  ;
+}
+.mytext-blue{
+  color: #01233f;
+}
