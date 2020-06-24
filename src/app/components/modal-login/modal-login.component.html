@@ -1,0 +1,28 @@
+<ng-template #content let-modal >
+    <div class="modal-header" style="background-color: #01233f; color:white ">
+      <h4 class="modal-title" id="modal-basic-title">Entrez vos identifiants pour vous connectez </h4>
+      <button type="button" class="close text-white" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" >
+      <form>
+        <div class="form-group">
+          <label for="email"> Votre Email </label>
+          <input id="email" class="form-control" placeholder="email" >
+          <label for="password"> Votre mot de passe </label>
+          <input id="password" class="form-control" placeholder="mot de passe">
+
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer m-auto">
+      <button type="button" class="btn btn-outline-dark " (click)="modal.close('Save click')">Connectez-vous</button>
+    </div>
+</ng-template>
+
+<a class="nav-link text-white d-flex align-items-end" (click)="open(content)" id="navbarDropdown0">
+          <img src="assets/img/logo/profil_noir.png" class="logo_nav pr-4 d-lg-block d-none" style="height: 30px">
+          ACCES PRO
+</a>
+

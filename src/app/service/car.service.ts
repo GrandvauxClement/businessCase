@@ -66,4 +66,14 @@ export class CarService {
         catchError(this.handleError)
       );
   }
+
+  deleteCar(idCarToDelete: number): Observable<Car> {
+    return this.http.delete<Car>(this.apiURL + '/' + idCarToDelete )
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+
 }

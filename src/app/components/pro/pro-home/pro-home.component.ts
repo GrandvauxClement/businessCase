@@ -35,4 +35,14 @@ export class ProHomeComponent implements OnInit {
   });
   }
 
+  deleteCar(IdcarToDelete: number): void {
+    this.isLoading = true;
+    this.carService.deleteCar(IdcarToDelete).subscribe(then => {
+      this.carService.getCarByIdgarage(this.idclientContent).subscribe((data: Car[]) => {
+        this.cars = data;
+        this.isLoading = false;
+      });
+    });
+  }
+
 }

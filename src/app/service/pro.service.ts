@@ -4,6 +4,7 @@ import { throwError, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/internal/operators';
+import {Car} from '../models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,7 @@ export class ProService {
         catchError(this.handleError)
       );
   }
+
 
 }
 

@@ -1,19 +1,41 @@
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <h3 class="text-center mytext-orange"> Bienvenue {{proffesionel[0].nom}} sur votre page perso  </h3>
-  <h5 class="mytext-orange text-center"> Cliquer sur la voiture à modifier </h5>
-  <div class="row mt-5">
-    <div class="col-3">
+  <h5 class="mytext-orange text-center"> Vous pouvez ici ajouter, modifier ou supprimer vos voitures réferencer </h5>
+  <div class="row mt-5 ">
+    <div class="col-3 ml-3">
       <app-navside></app-navside>
     </div>
-    <div class="col-4 m-auto flex-column borders">
-      <h3 class="text-center "> Garage n° {{cars[0].idClientContent}}</h3>
-      <div *ngFor="let car of cars" class="align-items-center">
-        <div class="row justify-content-between mt-5 selected" [routerLink]="['/car-update',car.id]">
-          <h5>{{car.dateAjout|date:'dd-MM-yyyy'}} : {{car.marque}} {{car.modele}} <br>
-          {{car.prix}} € ... </h5>
-          <img src="assets/img/logo/edit.png">
-        </div>
-      </div>
+    <div class="col m-auto">
+      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel[0].nomGarage}} </h5>
+      <table class="table bg-light" *ngIf="isLoading ===false">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Marque</th>
+          <th scope="col"> Modèle </th>
+          <th scope="col"> Prix  </th>
+          <th scope="col"> Image principal</th>
+          <th scope="col">Date d'ajout </th>
+          <th scope="col"> Modifier  </th>
+          <th scope="col">Suprimer </th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let car of cars">
+        <tr  class="selected">
+          <th scope="row" class="countForTest">{{car.id}}</th>
+          <td>{{car.marque}}</td>
+          <td>{{car.modele }}</td>
+          <td> {{car.prix}}</td>
+          <td> <img src="{{car.image}}">  </td>
+          <td> {{car.dateAjout}}</td>
+          <td> <button class="btn btn-primary" [routerLink]="['/car-update',car.id]"> Modifier</button> </td>
+          <td> <button class="btn btn-danger deletePlanet" (click)="deleteCar(car.id)"> Supprimer </button> </td>
+
+        </tr>
+        </tbody>
+      </table>
     </div>
+
+
   </div>
 </div>-

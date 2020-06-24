@@ -17,7 +17,10 @@ import { AddCarComponent } from './components/pro/add-car/add-car.component';
 import { UpdateCarComponent } from './components/pro/update-car/update-car.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { CollapseModule} from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgbdModalComponent } from './components/modal-login/modal-login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
     ProHomeComponent,
     NavsideComponent,
     AddCarComponent,
-    UpdateCarComponent
+    UpdateCarComponent,
+    NgbdModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
     CommonModule,
     ToastrModule.forRoot(),
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

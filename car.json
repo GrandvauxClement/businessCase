@@ -4,7 +4,7 @@
       "id": 1,
       "marque": "Audi",
       "modele": "A5",
-      "carburant": "diesel",
+      "carburant": "Diesel",
       "annee": 2012,
       "kilometrage": 60000,
       "prix": 25000,
@@ -23,7 +23,7 @@
       "id": 2,
       "marque": "Dacia",
       "modele": "Prestige",
-      "carburant": "essence",
+      "carburant": "Essence",
       "annee": 2015,
       "kilometrage": 40000,
       "prix": 12500,
@@ -42,7 +42,7 @@
       "id": 3,
       "marque": "Audi",
       "modele": "A5",
-      "carburant": "diesel",
+      "carburant": "Diesel",
       "annee": 2012,
       "kilometrage": 60000,
       "prix": 25000,
@@ -58,6 +58,7 @@
       "dateAjout": "2020-04-23T18:25:43.511Z"
     },
     {
+      "id": 4,
       "marque": "Peugeot",
       "modele": "308 gti",
       "carburant": "Electrique",
@@ -66,14 +67,26 @@
       "prix": 14500,
       "image": "assets/img/voiture/renault/clio4.jpg",
       "idClientContent": 1,
-      "dateAjout": "2020-03-18T11:02:03.913Z",
-      "id": 4
+      "dateAjout": "2020-03-18T11:02:03.913Z"
+    },
+    {
+      "marque": "Dacia",
+      "modele": "sandero",
+      "carburant": "Diesel",
+      "annee": 2012,
+      "kilometrage": 120000,
+      "prix": 15000,
+      "image": "assets/img/voiture/renault/clio4.jpg",
+      "idClientContent": 1,
+      "dateAjout": "2020-05-09T14:25:57.109Z",
+      "id": 5
     }
   ],
   "pro": [
     {
       "id": 1,
-      "nom": "Garage-test",
+      "nom": "Mr test",
+      "nomGarage": "Garage-test",
       "numSiret": "78544536684512",
       "numTel": "0384253729",
       "adresse": "10 Place de la gare 38000 Grenoble",

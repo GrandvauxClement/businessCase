@@ -2,11 +2,11 @@
   <div class=" h-100 d-flex flex-column align-items-end justify-content-center mr-5" id="filtre">
     <div class="text-center mr-6 ">
     <div class="btn-group-vertical mr-3" role="group" aria-label="Button group with nested dropdown">
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop1" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Marque
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="renault"> Renault </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="peugeot"> Peugeot </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="citroen"> Citroën </div>
@@ -14,22 +14,22 @@
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="audi"> audi </div>
         </div>
       </div>
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop2" type="button" class="btn  dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop2" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Carburant
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="renault"> Essence </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="peugeot"> Diesel </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="citroen"> Electrique </div>
         </div>
       </div>
 
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop3" type="button" class="btn dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop3" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Kilométrage
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="renault"> Renault </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="peugeot"> Peugeot </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="citroen"> Citroën </div>
@@ -39,11 +39,11 @@
       </div>
     </div>
     <div class="btn-group-vertical " role="group" aria-label="Button group with nested dropdown">
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop4" type="button" class="btn  dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop4" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Modèle
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="modèle" value="308"> 308 </div>
           <div class="dropdown-item"> <input type="checkbox" name="modèle" value="308_gt_line"> 308 gt line </div>
           <div class="dropdown-item"> <input type="checkbox" name="modèle" value="3008"> 3008 </div>
@@ -51,11 +51,11 @@
           <div class="dropdown-item"> <input type="checkbox" name="modèle" value="307"> 307 </div>
         </div>
       </div>
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop5" type="button" class="btn  dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop5" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Année
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="année" value="2000-"> 2000  </div>
           <div class="dropdown-item"> <input type="checkbox" name="année" value="2005_2010"> 2005-2010 </div>
           <div class="dropdown-item"> <input type="checkbox" name="année" value="2010_2015"> 2010-2015 </div>
@@ -63,11 +63,11 @@
         </div>
       </div>
 
-      <div class="btn-group mt-3" role="group">
-        <button id="btnGroupDrop6" type="button" class="btn  dropdown-toggle rounded filtre-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="btn-group mt-3" dropdown role="group">
+        <button id="btnGroupDrop6" dropdownToggle type="button" class="btn dropdown-toggle rounded filtre-menu" aria-controls="dropdown-basic">
           Prix
         </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="button-basic">
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="renault"> Moins de 5.000€ </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="peugeot"> Entre 5.000 et 10.000 € </div>
           <div class="dropdown-item"> <input type="checkbox" name="marque" value="citroen"> Entre 10.000 et 15.000€ </div>
