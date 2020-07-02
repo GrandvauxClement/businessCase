@@ -2,5 +2,5 @@
   <button class="btn btn-navpro" [routerLink]="['/pro-home']" routerLinkActive="active"> Mes garages </button>
   <button class="btn btn-navpro" [routerLink]="['/updateProfil']" routerLinkActive="active"> Modifier Mon profil </button>
   <button class="btn btn-navpro" id="deconect" [routerLink]="['/add-car']" routerLinkActive="active"> Deposer une nouvelle annonce</button>
-  <button class="btn btn-deconnect" [routerLink]="['/home']" > <img src="assets/img/logo/iconePower.png" alt="disconnect"> Se déconnecter </button>
+  <button class="btn btn-deconnect"  (click)="logOut()" > <img src="assets/img/logo/iconePower.png" alt="disconnect"> Se déconnecter </button>
 </nav>

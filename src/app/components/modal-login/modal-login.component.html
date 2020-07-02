@@ -6,23 +6,84 @@
       </button>
     </div>
     <div class="modal-body" >
-      <form>
+      <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
         <div class="form-group">
-          <label for="email"> Votre Email </label>
-          <input id="email" class="form-control" placeholder="email" >
-          <label for="password"> Votre mot de passe </label>
-          <input id="password" class="form-control" placeholder="mot de passe">
-
+          <label for="username">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            [(ngModel)]="formUser.email"
+            required
+            #username="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && username.invalid"
+          >
+            email is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [(ngModel)]="formUser.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && password.invalid"
+          >
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group modal-footer">
+          <button class="btn btn-primary btn-block">
+            Login
+          </button>
+        </div>
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Login failed: {{ errorMessage }}
+          </div>
         </div>
       </form>
     </div>
-    <div class="modal-footer m-auto">
-      <button type="button" class="btn btn-outline-dark " (click)="modal.close('Save click')">Connectez-vous</button>
-    </div>
+   <!-- <div class="modal-footer m-auto">
+      <button type="button" class="btn btn-outline-dark (click)="modal.close('Save click')" " >Connectez-vous</button>
+    </div>-->
 </ng-template>
 
-<a class="nav-link text-white d-flex align-items-end" (click)="open(content)" id="navbarDropdown0">
+<a *ngIf="userConnect === null" class="nav-link text-white d-flex align-items-end" (click)="open(content)" id="navbarDropdown0">
           <img src="assets/img/logo/profil_noir.png" class="logo_nav pr-4 d-lg-block d-none" style="height: 30px">
           ACCES PRO
 </a>
+
+<a *ngIf="userConnect !== null" class="nav-link text-white d-flex align-items-end" [routerLink]="['/pro-home']">
+  <img src="assets/img/logo/profil_noir.png" class="logo_nav pr-4 d-lg-block d-none" style="height: 30px">
+  ACCES PRO
+</a>
+
 

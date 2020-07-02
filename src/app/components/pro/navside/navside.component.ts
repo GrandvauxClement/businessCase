@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-navside',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavsideComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenService: TokenStorageService) { }
 
   ngOnInit(): void {
+  }
+  logOut() {
+    this.tokenService.logOut();
+    window.location.reload();
   }
 
 }

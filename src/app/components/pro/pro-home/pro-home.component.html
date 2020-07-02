@@ -1,12 +1,12 @@
 <div class="container-fluid mt-5">
-  <h3 class="text-center mytext-orange"> Bienvenue {{proffesionel[0].nom}} sur votre page perso  </h3>
+  <h3 class="text-center mytext-orange"> Bienvenue {{proffesionel.nom}} sur votre page perso  </h3>
   <h5 class="mytext-orange text-center"> Vous pouvez ici ajouter, modifier ou supprimer vos voitures réferencer </h5>
   <div class="row mt-5 ">
     <div class="col-3 ml-3">
       <app-navside></app-navside>
     </div>
     <div class="col m-auto">
-      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel[0].nomGarage}} </h5>
+      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel.garages[0].nom}} </h5>
       <table class="table bg-light" *ngIf="isLoading ===false">
         <thead>
         <tr>
@@ -27,7 +27,7 @@
           <td>{{car.modele }}</td>
           <td> {{car.prix}}</td>
           <td> <img src="{{car.image}}">  </td>
-          <td> {{car.dateAjout}}</td>
+          <td> {{car.date_ajout|date:'d/MM/yyyy'}}</td>
           <td> <button class="btn btn-primary" [routerLink]="['/car-update',car.id]"> Modifier</button> </td>
           <td> <button class="btn btn-danger deletePlanet" (click)="deleteCar(car.id)"> Supprimer </button> </td>
 

@@ -1,8 +1,9 @@
-import { ProService } from './../../../service/pro.service';
-import { Pro } from './../../../models/pro';
-import { Car } from './../../../models/car';
-import { CarService } from './../../../service/car.service';
+import { ProService } from '../../../service/pro.service';
+import { Pro } from '../../../models/pro';
+import { Car } from '../../../models/car';
+import { CarService } from '../../../service/car.service';
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "../../../service/token-storage.service";
 
 @Component({
   selector: 'app-pro-home',
@@ -12,24 +13,26 @@ import { Component, OnInit } from '@angular/core';
 export class ProHomeComponent implements OnInit {
   idclientContent = 1;
   isLoading: boolean;
-  cars: Car[];
-  proffesionel: Pro[];
-  constructor(private carService: CarService, private proService: ProService) { }
+  cars;
+  proffesionel;
+  constructor(private carService: CarService, private proService: ProService, private tokenService: TokenStorageService) { }
 
   ngOnInit() {
+    this.proffesionel = this.tokenService.getUser();
+    console.log(this.proffesionel);
     this.getCarByIdgarage();
-    this.getPro();
   }
   getCarByIdgarage() {
     this.isLoading = true;
-    return this.carService.getCarByIdgarage(this.idclientContent).subscribe((data: Car[]) => {
-      this.cars = data;
+    return this.carService.getCarByIdgarage(this.proffesionel.garages[0].id).subscribe((data: Car[]) => {
+      this.cars = data['hydra:member'];
+      console.log(this.cars)
       this.isLoading = false;
     });
   }
   getPro() {
     this.isLoading = true;
-    return this.proService.getPro().subscribe((data: Pro[]) => {
+    return this.tokenService.getUser().subscribe((data) => {
       this.proffesionel = data;
       this.isLoading = false;
   });
@@ -43,6 +46,11 @@ export class ProHomeComponent implements OnInit {
         this.isLoading = false;
       });
     });
+  }
+
+  logOut() {
+    this.tokenService.logOut();
+
   }
 
 }

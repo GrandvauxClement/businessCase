@@ -21,6 +21,14 @@ import { CollapseModule} from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgbdModalComponent } from './components/modal-login/modal-login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {JwtModule} from "@auth0/angular-jwt";
+import {AuthenticatorGuardService} from "./guards/authenticator.guard";
+import {authInterceptorProviders} from "./_helpers/authenticator.interceptor";
+
+export function getToken() {
+  return localStorage.getItem('auth-token');
+}
+
 
 @NgModule({
   declarations: [
@@ -47,9 +55,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToastrModule.forRoot(),
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    NgbModule
+    NgbModule,
+    JwtModule.forRoot({ config: {
+        tokenGetter: getToken
+      }})
   ],
-  providers: [],
+  providers: [
+    AuthenticatorGuardService,
+    authInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

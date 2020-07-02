@@ -12,7 +12,7 @@ import {Car} from '../models/car';
 export class ProService {
 
   pros: Pro[];
-  apiURL = 'http://localhost:3000/pro';
+  apiURL = 'http://127.0.0.1:8000/api/pro';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

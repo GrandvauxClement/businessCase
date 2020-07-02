@@ -1,5 +1,5 @@
-import { Car } from './../../models/car';
-import { CarService } from './../../service/car.service';
+import { Car } from '../../models/car';
+import { CarService } from '../../service/car.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,8 +14,9 @@ export class CardCarComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    return this.carService.getCars().subscribe((data: Car[]) => {
-      this.cars = data;
+    return this.carService.getCars().subscribe((data) => {
+      this.cars = data['hydra:member'];
+      console.log(this.cars);
       this.isLoading = false;
     });
   }

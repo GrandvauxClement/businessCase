@@ -1,4 +1,4 @@
-import { Car } from './../models/car';
+import { Car } from '../models/car';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { throwError, Observable } from 'rxjs';
@@ -10,15 +10,13 @@ import { retry, catchError } from 'rxjs/internal/operators';
   providedIn: 'root'
 })
 export class CarService {
-  cars: Car[];
-  apiURL = 'http://localhost:3000/car';
+  apiURL = 'http://127.0.0.1:8000/api/cars';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
   constructor(private router: Router, private http: HttpClient) {
-  this.cars = [];
   }
   handleError(error) {
     let errorMessage = '';
@@ -31,7 +29,7 @@ export class CarService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
-  getCars(): Observable<Car[]> {
+  getCars(): Observable<any> {
     return this.http.get<Car[]>(this.apiURL)
       .pipe(
         retry(1),
