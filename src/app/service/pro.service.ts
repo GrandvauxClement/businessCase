@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/internal/operators';
 import {Car} from '../models/car';
+import {Garages} from "../models/garages";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import {Car} from '../models/car';
 export class ProService {
 
   pros: Pro[];
-  apiURL = 'http://127.0.0.1:8000/api/pro';
+  apiURL = 'http://127.0.0.1:8000/api/pros';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -38,6 +39,49 @@ export class ProService {
         retry(1),
         catchError(this.handleError)
       );
+  }
+
+  getGarageByIdPro(idpro: number, urlGarage: string): Observable<Garages[]> {
+    return this.http.get<Garages[]>(this.apiURL +'/'+{idpro}+'/garages/'+{urlGarage}+'/cars')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  getAllUsers(token: string): Observable<Pro[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token})
+    };
+    return this.http.get<Pro[]>(this.apiURL , httpOptions);
+  }
+
+  addUser(token: string, user: Pro): Observable<Pro> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token})
+    };
+    return this.http.post<Pro>(this.apiURL , user, httpOptions);
+  }
+
+  deleteUser(token: string, user: Pro): Observable<Pro> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token})
+    };
+    return this.http.delete<Pro>(this.apiURL +'/'+ user.id, httpOptions);
+  }
+
+  getUserById(token: string, id: number): Observable<Pro> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token})
+    };
+    return this.http.get<Pro>(this.apiURL +'/'+ id, httpOptions);
+  }
+
+  editUser(token: string, user: Pro): Observable<Pro> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token})
+    };
+    return this.http.put<Pro>(this.apiURL +'/'+ user.id, user, httpOptions);
   }
 
 

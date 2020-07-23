@@ -40,9 +40,11 @@
         </div>
         <div class="form-group">
           <label for="image"> Image Présentation (son lien ) </label>
-          <input class="form-control" type="text" id="image" name="image" required [(ngModel)]="carUpdate.image" #image="ngModel">
+          <input class="form-control" type="text" id="image" name="image" required [(ngModel)]="carUpdate.images" #image="ngModel">
           <div [hidden]="image.valid" class="alert alert-danger"> Une image est requise</div>
         </div>
         <input [disabled]="!carForm.valid" class="btn btn-success" type="submit">
       </form>
     </div>
+  </div>
+</div>

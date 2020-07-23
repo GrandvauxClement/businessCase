@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CardCarComponent implements OnInit {
   isLoading: boolean;
   cars: Car[];
+  images : [];
   constructor(private carService: CarService) { }
 
   ngOnInit() {
@@ -18,6 +19,7 @@ export class CardCarComponent implements OnInit {
       this.cars = data['hydra:member'];
       console.log(this.cars);
       this.isLoading = false;
+
     });
   }
 

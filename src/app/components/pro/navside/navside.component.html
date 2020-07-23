@@ -1,6 +1,7 @@
 <nav class="d-flex flex-column align-items-start">
   <button class="btn btn-navpro" [routerLink]="['/pro-home']" routerLinkActive="active"> Mes garages </button>
   <button class="btn btn-navpro" [routerLink]="['/updateProfil']" routerLinkActive="active"> Modifier Mon profil </button>
+  <button *ngIf='proffesionel.roles[0] === "ROLE_ADMIN"' class="btn btn-navpro" [routerLink]="['/pro-management']" routerLinkActive="active"> Accéder au Pro Management </button>
   <button class="btn btn-navpro" id="deconect" [routerLink]="['/add-car']" routerLinkActive="active"> Deposer une nouvelle annonce</button>
   <button class="btn btn-deconnect"  (click)="logOut()" > <img src="assets/img/logo/iconePower.png" alt="disconnect"> Se déconnecter </button>
 </nav>

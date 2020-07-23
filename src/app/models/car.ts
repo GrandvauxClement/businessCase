@@ -6,12 +6,12 @@ export class Car {
   annee: number;
   kilometrage: string;
   prix: number;
-  image: string;
-  imageCarousel: string[];
-  idPro: number;
+  images: string[];
+  garages: string;
   dateAjout: Date;
+  description: string;
   constructor( id?: number, marque?: string, modele?: string, carburant?: string, annee?: number, kilometrage?: string, prix?: number,
-               image?: string, imageCarousel?: string[], idPro?: number, dateAjout?: Date ) {
+               images?: string[], garages?: string, dateAjout?: Date, description?: string ) {
     this.id = id ;
     this.marque = marque;
     this.modele = modele;
@@ -19,10 +19,10 @@ export class Car {
     this.annee = annee;
     this.kilometrage = kilometrage;
     this.prix = prix;
-    this.image = image;
-    this.imageCarousel = imageCarousel;
-    this.idPro = idPro;
+    this.images = images;
+    this.garages = garages;
     this.dateAjout = dateAjout;
+    this.description = description;
   }
 
 }

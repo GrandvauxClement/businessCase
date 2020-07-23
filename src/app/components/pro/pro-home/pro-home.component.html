@@ -6,7 +6,7 @@
       <app-navside></app-navside>
     </div>
     <div class="col m-auto">
-      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel.garages[0].nom}} </h5>
+      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel.garages.nom}} </h5>
       <table class="table bg-light" *ngIf="isLoading ===false">
         <thead>
         <tr>
@@ -14,6 +14,7 @@
           <th scope="col">Marque</th>
           <th scope="col"> Modèle </th>
           <th scope="col"> Prix  </th>
+          <th scope="col"> Kilométrage </th>
           <th scope="col"> Image principal</th>
           <th scope="col">Date d'ajout </th>
           <th scope="col"> Modifier  </th>
@@ -26,8 +27,9 @@
           <td>{{car.marque}}</td>
           <td>{{car.modele }}</td>
           <td> {{car.prix}}</td>
-          <td> <img src="{{car.image}}">  </td>
-          <td> {{car.date_ajout|date:'d/MM/yyyy'}}</td>
+          <td> {{car.kilometrage}}</td>
+          <td> <img src="http://localhost:8000/uploads/voitures/{{car.images[0]}}" alt="Pas d'image renseigné">  </td>
+          <td> {{car.dateAjout|date:'d/MM/yyyy'}}</td>
           <td> <button class="btn btn-primary" [routerLink]="['/car-update',car.id]"> Modifier</button> </td>
           <td> <button class="btn btn-danger deletePlanet" (click)="deleteCar(car.id)"> Supprimer </button> </td>
 

@@ -11,6 +11,7 @@ import { retry, catchError } from 'rxjs/internal/operators';
 })
 export class CarService {
   apiURL = 'http://127.0.0.1:8000/api/cars';
+  apiUrlBis = 'http://127.0.0.1:8000';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -43,13 +44,21 @@ export class CarService {
         catchError(this.handleError)
       );
   }
-  getCarByIdgarage(idgarage: number): Observable<Car[]> {
-    return this.http.get<Car[]>(this.apiURL + '?idClientContent=' + idgarage)
+  getCarByIdgarage(garage:string): Observable<Car[]> {
+    return this.http.get<Car[]>(this.apiUrlBis + garage + '/cars')
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
+  getImagesByIdcar(idcar: number): Observable<any[]> {
+    return this.http.get<any[]>(this.apiURL +'/'+ idcar + '/images')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
   addCar(carToAdd: Car): Observable<Car> {
     return this.http.post<Car>(this.apiURL, carToAdd, this.httpOptions)
       .pipe(

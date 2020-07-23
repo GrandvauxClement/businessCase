@@ -1,0 +1,189 @@
+<div class="container-fluid mt-5">
+  <h2 class="text-center mytext-orange"> Ajouter un nouveau pro</h2>
+  <div class="row">
+    <div class="col-3">
+      <app-navside></app-navside>
+    </div>
+    <div class="col">
+
+
+    <form class="form" #validationForm="ngForm" (ngSubmit)="addUser(validationForm)" id="validationForm">
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col-lg-4">
+            <label>Email:</label>
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-email"></i></span></div>
+              <input type="email"
+                     class="form-control is-valid"
+                     name="email"
+                     [(ngModel)]="userForm.email"
+                     #email="ngModel"
+                     [ngClass]="{ 'is-invalid': email.invalid }"
+                     pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                     required
+                     ngModel [email]="true">
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un email</span>
+            <div *ngIf="email.invalid && errorFieldType=='email'" class="invalid-form">
+              {{ errorMessage }}
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                 class="invalid-form">
+              <div *ngIf="email.errors.required">
+                L'email est requis.
+              </div>
+              <div *ngIf="email.errors?.pattern">
+                Email invalide.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <label>Mot de passe:</label>
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-protected"></i></span></div>
+              <input type="password"
+                     #password="ngModel"
+                     id="password"
+                     name="password"
+                     [(ngModel)]="userForm.password"
+                     [ngClass]="{ 'is-invalid': password.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Mot de passe"
+                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{6,}$"
+                     minlength=6
+                     maxlength=50
+                     required
+              />
+            </div>
+            <span class="form-text text-muted">Entrer le mot de passe</span>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                 class="invalid-form">
+              <div *ngIf="password.errors.required">
+                Le mot de passe est requis.
+              </div>
+              <div *ngIf="password.errors.minlength">
+                Le mot de passe doit contenir au minimum 6 charactères.
+              </div>
+              <div *ngIf="password.errors?.pattern">
+                Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule et 1 chiffre.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="separator separator-dashed my-10"></div>
+
+        <div class="form-group row">
+          <div class="col-lg-4">
+            <label>Télephone:</label>
+            <div class="input-group">
+              <ngx-intl-tel-input
+                #numTelelephone ="ngModel"
+                [(ngModel)]="userForm.numTelephone"
+                id="numTelephone"
+                [cssClass]="numTelelephone.valid ? 'form-control is-valid' : 'form-control is-invalid'"
+                [onlyCountries]="onlyCountries"
+                [enableAutoCountrySelect]="false"
+                [enablePlaceholder]="true"
+                [searchCountryFlag]="false"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                [selectFirstCountry]="false"
+                [selectedCountryISO]="CountryISO.France"
+                [maxLength]="15"
+                [tooltipField]="TooltipLabel.Name"
+                [phoneValidation]="true"
+                [separateDialCode]="separateDialCode"
+                [searchCountryPlaceholder]="'Rechercher par pays'"
+                name="numTel"
+                style="min-width: 100%;"
+                required>
+              </ngx-intl-tel-input>
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un numéro de télephone</span>
+            <!--               <div *ngIf="numTel.invalid && numTel.touched"
+                          class="invalid-form">
+                          Le numéro de téléphone est invalide.
+                          </div> -->
+          </div>
+          <div class="col-lg-4">
+            <label>Nom:</label>
+            <div class="input-group">
+              <input type="text"
+                     #nom="ngModel"
+                     id="nom"
+                     name="nom"
+                     [(ngModel)]="userForm.nom"
+                     [ngClass]="{ 'is-invalid': nom.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Nom"
+                     pattern="[a-zA-Z-àâçèéêîôùû]*"
+                     minlength=1
+                     maxlength=30
+                     required />
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un nom</span>
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+                 class="invalid-form">
+              <div *ngIf="nom.errors.required">
+                Le nom est requis.
+              </div>
+              <div *ngIf="nom.errors.minlength">
+                Le nom doit au contenir au moins 1 lettre.
+              </div>
+              <div *ngIf="nom.errors?.pattern">
+                Le nom est invalide.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <label>Prénom:</label>
+            <div class="input-group">
+              <input type="text"
+                     #prenom="ngModel"
+                     id="prenom"
+                     name="prenom"
+                     [(ngModel)]="userForm.prenom"
+                     [ngClass]="{ 'is-invalid': prenom.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Prénom"
+                     pattern="[a-zA-Z-àâçèéêîôùû]*"
+                     minlength=1
+                     maxlength=30
+                     required />
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un prénom</span>
+            <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+                 class="invalid-form">
+              <div *ngIf="prenom.errors.required">
+                Le prénom est requis.
+              </div>
+              <div *ngIf="prenom.errors.minlength">
+                Le prénom doit au contenir au moins 1 lettre.
+              </div>
+              <div *ngIf="prenom.errors?.pattern">
+                Le prénom est invalide.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-lg-5"></div>
+          <div class="col-lg-7">
+            <button id="submitButton"
+                    [disabled]="(!validationForm.valid || isInProgress)"
+                    type="submit"
+                    class="btn btn-primary mr-2"
+            >Valider</button>
+            <button [routerLink]="['/pro-management']"
+                    class="btn btn-secondary"
+            >Annuler</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

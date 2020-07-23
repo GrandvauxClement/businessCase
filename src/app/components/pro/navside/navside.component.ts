@@ -7,10 +7,11 @@ import {TokenStorageService} from "../../../service/token-storage.service";
   styleUrls: ['./navside.component.css']
 })
 export class NavsideComponent implements OnInit {
-
+proffesionel;
   constructor(private tokenService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.proffesionel = this.tokenService.getUser();
   }
   logOut() {
     this.tokenService.logOut();

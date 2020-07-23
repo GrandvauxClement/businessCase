@@ -1,0 +1,209 @@
+<div class="container-fluid mt-5">
+  <h2 class="text-center mytext-orange"> Mettez à jour les informations concernant vos pro</h2>
+  <div class="row">
+    <div class="col-3">
+      <app-navside></app-navside>
+    </div>
+    <div class="col">
+  <div *ngIf="isLoading">
+    <div role="status" class="d-flex justify-content-center">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+
+    <ng-container>
+      <div *ngIf="isLoading"><span [ngClass]="{
+        'text-primary': isLoading
+      }">En cours de chargement ...</span>
+      </div>
+    </ng-container>
+
+
+    <div *ngIf="isLoading" class="spinner-center d-flex justify-content-center">
+      <mat-spinner diameter="30"></mat-spinner>
+    </div>
+    <form class="form" #validationForm="ngForm" (ngSubmit)="editUser(validationForm)" id="validationForm" *ngIf="!isLoading">
+      <div class="card-body">
+        <div class="form-group row">
+          <!--<div class="col-lg-6">
+            <label>Nom d'utilisateur:</label>
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-avatar"></i></span></div>
+              <input type="text"
+                     #email="ngModel"
+                     id="email"
+                     name="email"
+                     [(ngModel)]="userForm.email"
+                     [ngClass]="{ 'is-invalid': email.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Nom d'utilisateur"
+                     minlength=4
+                     pattern="[a-z0-9_]*"
+                     appForbiddenName="{{isAdmin ? '' : 'admin'}}"
+                     maxlength=15
+                     [disabled]="isAdmin"
+                     required
+              />
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un nom d'utilisateur
+            </span>
+            <div *ngIf="email.invalid && errorFieldType=='username'" class="invalid-form">
+              {{ errorMessage }}
+            </div>
+            <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                 class="invalid-form">
+              <div *ngIf="username.errors.required">
+                Le nom d'utilisateur est requis.
+              </div>
+              <div *ngIf="username.errors.minlength">
+                Le nom d'utilisateur doit contenir au minimum 4 charactères.
+              </div>
+              <div *ngIf="username.errors.forbiddenName">
+                Le nom d'utilisateur admin est réservé.
+              </div>
+              <div *ngIf="username.errors?.pattern">
+                Le nom d'utilisateur ne peut contenir que des minuscules, des chiffres et le tiret bas _ .
+              </div>
+            </div>
+          </div>-->
+          <div class="col-lg-4">
+            <label>Email:</label>
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-email"></i></span></div>
+              <input type="email"
+                     class="form-control is-valid"
+                     name="email"
+                     [(ngModel)]="userForm.email"
+                     #email="ngModel"
+                     [ngClass]="{ 'is-invalid': email.invalid }"
+                     pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                     required
+                     ngModel [email]="true">
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un email</span>
+            <div *ngIf="email.invalid && errorFieldType=='email'" class="invalid-form">
+              {{ errorMessage }}
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                 class="invalid-form">
+              <div *ngIf="email.errors.required">
+                L'email est requis.
+              </div>
+              <div *ngIf="email.errors?.pattern">
+                Email invalide.
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--        <div class="separator separator-dashed my-10"></div>-->
+
+        <div class="form-group ">
+          <div class="col-lg-4">
+            <label>Télephone:</label>
+            <div class="input-group">
+              <ngx-intl-tel-input
+                #numTelephone.number ="ngModel"
+                [(ngModel)]="userForm.numTelephone"
+                [inputId]="'adsasd'"
+                [cssClass]="'form-control is-valid'"
+                [onlyCountries]="onlyCountries"
+                [enableAutoCountrySelect]="false"
+                [enablePlaceholder]="true"
+                [searchCountryFlag]="true"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                [selectFirstCountry]="false"
+                [selectedCountryISO]="CountryISO.France"
+                [maxLength]="15"
+                [tooltipField]="TooltipLabel.Name"
+                [phoneValidation]="true"
+                [separateDialCode]="separateDialCode"
+                [searchCountryPlaceholder]="'Rechercher par pays'"
+                name="numTelephone"
+                style="min-width: 100%;">
+              </ngx-intl-tel-input>
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un numéro de télephone</span>
+          </div>
+          <div class="col-lg-4">
+            <label>Nom:</label>
+            <div class="input-group">
+              <input type="text"
+                     #nom="ngModel"
+                     id="nom"
+                     name="nom"
+                     [(ngModel)]="userForm.nom"
+                     [ngClass]="{ 'is-invalid': nom.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Nom"
+                     pattern="[a-zA-Z-àâçèéêîôùû]*"
+                     minlength=1
+                     maxlength=30
+                     required />
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un nom</span>
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+                 class="invalid-form">
+              <div *ngIf="nom.errors.required">
+                Le nom est requis.
+              </div>
+              <div *ngIf="nom.errors.minlength">
+                Le nom doit au contenir au moins 1 lettre.
+              </div>
+              <div *ngIf="nom.errors?.pattern">
+                Le nom est invalide.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <label>Prénom:</label>
+            <div class="input-group">
+              <input type="text"
+                     #prenom="ngModel"
+                     id="prenom"
+                     name="prenom"
+                     [(ngModel)]="userForm.prenom"
+                     [ngClass]="{ 'is-invalid': prenom.invalid }"
+                     class="form-control is-valid"
+                     placeholder="Prénom"
+                     pattern="[a-zA-Z-àâçèéêîôùû]*"
+                     minlength=1
+                     maxlength=30
+                     required />
+            </div>
+            <span class="form-text text-muted">Veuillez entrer un prénom</span>
+            <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+                 class="invalid-form">
+              <div *ngIf="prenom.errors.required">
+                Le prénom est requis.
+              </div>
+              <div *ngIf="prenom.errors.minlength">
+                Le prénom doit au contenir au moins 1 lettre.
+              </div>
+              <div *ngIf="prenom.errors?.pattern">
+                Le prénom est invalide.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-lg-5"></div>
+          <div class="col-lg-7">
+            <button id="submitButton"
+                    [disabled]="(!validationForm.valid || isInProgress)"
+                    type="submit"
+                    class="btn btn-primary mr-2"
+            >Valider</button>
+            <button [routerLink]="['/pro-management']"
+                    class="btn btn-secondary">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+

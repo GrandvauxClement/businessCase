@@ -4,8 +4,17 @@
       <app-navside></app-navside>
     </div>
     <div class="col">
-      <h2> Ajouter une nouvelle voiture </h2>
+      <h2 class="text-center mytext-orange"> Ajouter une nouvelle voiture </h2>
       <form #carForm="ngForm" (ngSubmit)="addCar()">
+        <div class="form-group">
+
+          <label id="imagesLabel" for="images" class="custom-file-label">{{lastFile || 'Sélectionner vos images '}}</label>
+          <input type="file" multiple (change)="onFileSelected($event)" required id="images" class="custom-file-input">
+          <h4 class="text-center mytext-orange">Nom de vos fichier séléctionné :</h4>
+          <div *ngFor="let progressInfo of filesNames" class="mb-2">
+            <span class="text-light">{{ progressInfo }}</span>
+          </div>
+        </div>
         <div class="form-group">
             <label for="marque"> Marque </label>
             <select class="form-control" id="marque" name="marque" required [(ngModel)]="carAdd.marque" #marque="ngModel">
@@ -30,7 +39,7 @@
         </div>
         <div class="form-group">
           <label for="kilometrage"> Kilométrage au compteur en km </label>
-          <input class="form-control" type="number" id="kilometrage" name="kilometrage" required [(ngModel)]="carAdd.kilometrage" #kilometrage="ngModel">
+          <input class="form-control"  id="kilometrage" name="kilometrage" required [(ngModel)]="carAdd.kilometrage" #kilometrage="ngModel">
           <div [hidden]="kilometrage.valid" class="alert alert-danger"> Le kilométrage est requis</div>
         </div>
         <div class="form-group">
@@ -39,10 +48,15 @@
           <div [hidden]="prix.valid" class="alert alert-danger"> Le prix est requis</div>
         </div>
         <div class="form-group">
-          <label for="image"> Image Présentation (son lien ) </label>
-          <input class="form-control" type="text" id="image" name="image" required [(ngModel)]="carAdd.image" #image="ngModel">
-          <div [hidden]="image.valid" class="alert alert-danger"> Une image est requise</div>
+          <label for="description"> Décriver en quelque ligne votre voiture </label>
+          <textarea class="form-control" id="description" name="description" required [(ngModel)]="carAdd.description" #description="ngModel"></textarea>
+          <div [hidden]="description.valid" class="alert alert-danger"> La description est requise</div>
         </div>
+
+
+<!--        <button type="button" (click)='onUpload()' class="btn">Upload</button>-->
+
         <input [disabled]="!carForm.valid" class="btn btn-success" type="submit">
       </form>
     </div>
+</div>
