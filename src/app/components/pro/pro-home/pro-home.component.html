@@ -1,43 +1,45 @@
 <div class="container-fluid mt-5">
-  <h3 class="text-center mytext-orange"> Bienvenue {{proffesionel.nom}} sur votre page perso  </h3>
-  <h5 class="mytext-orange text-center"> Vous pouvez ici ajouter, modifier ou supprimer vos voitures réferencer </h5>
+  <h2 class="text-center mytext-orange"> Bienvenue {{proffesionel.nom}} sur votre page perso  </h2>
+  <h3 class="mytext-orange text-center"> Vous pouvez ici ajouter, modifier ou supprimer vos voitures réferencer </h3>
   <div class="row mt-5 ">
     <div class="col-3 ml-3">
       <app-navside></app-navside>
     </div>
-    <div class="col m-auto">
-      <h5 class="mytext-orange text-center"> Gerez vos voiture pour {{proffesionel.garages.nom}} </h5>
-      <table class="table bg-light" *ngIf="isLoading ===false">
-        <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Marque</th>
-          <th scope="col"> Modèle </th>
-          <th scope="col"> Prix  </th>
-          <th scope="col"> Kilométrage </th>
-          <th scope="col"> Image principal</th>
-          <th scope="col">Date d'ajout </th>
-          <th scope="col"> Modifier  </th>
-          <th scope="col">Suprimer </th>
-        </tr>
-        </thead>
-        <tbody *ngFor="let car of cars">
-        <tr  class="selected">
-          <th scope="row" class="countForTest">{{car.id}}</th>
-          <td>{{car.marque}}</td>
-          <td>{{car.modele }}</td>
-          <td> {{car.prix}}</td>
-          <td> {{car.kilometrage}}</td>
-          <td> <img src="http://localhost:8000/uploads/voitures/{{car.images[0]}}" alt="Pas d'image renseigné">  </td>
-          <td> {{car.dateAjout|date:'d/MM/yyyy'}}</td>
-          <td> <button class="btn btn-primary" [routerLink]="['/car-update',car.id]"> Modifier</button> </td>
-          <td> <button class="btn btn-danger deletePlanet" (click)="deleteCar(car.id)"> Supprimer </button> </td>
+    <div class="col-8">
+      <div *ngFor="let garage of cars; let indexOfelement=index;">
 
-        </tr>
-        </tbody>
-      </table>
+        <h3 class="mytext-orange text-center"> Gerez vos voiture référencer dans le garage {{garages[indexOfelement].nom}} </h3>
+        <table class="table bg-light" *ngIf="isLoading ===false">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Marque</th>
+            <th scope="col"> Modèle </th>
+            <th scope="col"> Prix  </th>
+            <th scope="col"> Kilométrage </th>
+            <th scope="col"> Image principal</th>
+            <th scope="col">Date d'ajout </th>
+            <th scope="col"> Modifier  </th>
+            <th scope="col">Suprimer </th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let car of garage">
+          <tr  class="selected">
+            <th scope="row" class="countForTest">{{car.id}}</th>
+            <td>{{car.marque}}</td>
+            <td>{{car.modele }}</td>
+            <td> {{car.prix}}</td>
+            <td> {{car.kilometrage}}</td>
+            <td> <img src="http://localhost:8000/uploads/voitures/{{car.images[0]}}" alt="Pas d'image renseigné">  </td>
+            <td> {{car.dateAjout|date:'d/MM/yyyy'}}</td>
+            <td> <button class="btn btn-primary" [routerLink]="['/car-update',car.id]"> Modifier</button> </td>
+            <td> <button class="btn btn-danger deletePlanet" (click)="deleteCar(car.id)"> Supprimer </button> </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
-
-
   </div>
-</div>-
+</div>

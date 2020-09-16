@@ -16,33 +16,43 @@ import {Observable} from "rxjs";
 export class ProHomeComponent implements OnInit {
   idclientContent = 1;
   isLoading: boolean;
-  garages ;
-  cars;
+  garages = [] ;
+  cars = [];
+  compteur = 0 ;
   proffesionel;
   constructor(private carService: CarService, private proService: ProService, private tokenService: TokenStorageService, private router:Router) { }
 
   ngOnInit() {
     this.proffesionel = this.tokenService.getUser();
-    console.log(this.proffesionel);
-    this.getCarByIdgarage();
-    console.log('l email :'+this.proffesionel.email)
+    console.log(this.proffesionel.garages);
+    this.getGarageByPro();
+    console.log('je passe ici je recup l id pro '+this.proffesionel.id);
+    for (let index = 0; index < this.proffesionel.garages.length; index++) {
+
+      this.getCarByIdgarage(index, this.compteur);
+
+      this.compteur += 1;
+    }
+    console.log('mes voitures par garages :'+this.cars);
   }
-  getCarByIdgarage() {
+  getCarByIdgarage(index, compteur) {
     this.isLoading = true;
-    this.garages = this.proService.getGarageByIdPro(this.proffesionel.id,this.proffesionel.garages[0]);
+    // this.garages[index] = this.proService.getGarageByIdPro(this.proffesionel.id,this.proffesionel.garages[index]);
     console.log('garages: '+this.garages);
-    return this.carService.getCarByIdgarage(this.proffesionel.garages[0]).subscribe((data: Car[]) => {
-      this.cars = data['hydra:member'];
-      console.log(this.proffesionel.garages[0])
+    return this.carService.getCarByIdgarage(this.proffesionel.garages[index]).subscribe((data: Car[]) => {
+      this.cars[compteur] = data['hydra:member'];
+      console.log(this.cars);
       this.isLoading = false;
     });
   }
-  getPro() {
+  getGarageByPro() {
     this.isLoading = true;
-    return this.tokenService.getUser().subscribe((data) => {
-      this.proffesionel = data;
+    return this.proService.getGarageByIdPro(this.proffesionel.id).subscribe((data: Garages[]) => {
+      this.garages = data['hydra:member'];
+      console.log('mes garages trié : '+this.garages[1].nom);
       this.isLoading = false;
-  });
+    })
+
   }
 
   deleteCar(IdcarToDelete: number): void {

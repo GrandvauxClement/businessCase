@@ -16,7 +16,7 @@ import {UploadService} from "../../../service/upload.service";
 })
 export class AddCarComponent implements OnInit {
   carAdd = new Car();
-  garageConnect = new Garages();
+  garageConnect = [];
   idPro : number;
   token: string;
   isLoading: boolean;
@@ -41,11 +41,9 @@ export class AddCarComponent implements OnInit {
     this.carAdd.dateAjout = new Date();
     this.idPro = this.tokenStorage.getUser().id;
     this.isLoading = true;
-    console.log(this.proffesionel.garages[0]);
-    return this.proService.getGarageByIdPro(this.idPro, this.proffesionel.garages[0]).subscribe((data) => {
+    return this.proService.getGarageByIdPro(this.idPro).subscribe((data) => {
       this.garageConnect = data['hydra:member'];
-
-
+      console.log('mes garages: '+this.garageConnect);
       this.isLoading = false;
     });
 
@@ -94,9 +92,9 @@ export class AddCarComponent implements OnInit {
    /* for (let i = 0; i < this.myFiles.length; i++) {
       this.onUpload(i, this.myFiles[i]);
     }*/
-    console.log('add car '+this.carAdd.images);
+    console.log('add car garages'+this.carAdd.garages);
     if (this.isLoading === false){
-      this.carAdd.garages = this.proffesionel.garages[0];
+     // this.carAdd.garages = this.proffesionel.garages[0];
       this.carService.addCar(this.carAdd).subscribe((then => {
         this.router.navigate(['/pro-home']);
       }));

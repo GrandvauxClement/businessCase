@@ -55,6 +55,7 @@ import { RoleGuardService } from 'src/app/guards/role.guard.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { EditProComponent } from './components/pro/pro-management/pro/edit-pro/edit-pro.component';
 import { AddProComponent } from './components/pro/pro-management/pro/add-pro/add-pro.component';
+import { UpdateProfilComponent } from './components/pro/update-profil/update-profil.component';
  //import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 export function getToken() {
@@ -79,7 +80,8 @@ export function getToken() {
     ProListComponent,
     ConfirmDialogComponent,
     EditProComponent,
-    AddProComponent
+    AddProComponent,
+    UpdateProfilComponent
   ],
   imports: [
     BrowserModule,

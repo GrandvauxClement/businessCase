@@ -11,6 +11,7 @@ import {MentionslegaleComponent} from "./components/reglementation/mentionslegal
 import {ProListComponent} from "./components/pro/pro-management/pro/pro-list/pro-list.component";
 import {EditProComponent} from "./components/pro/pro-management/pro/edit-pro/edit-pro.component";
 import {AddProComponent} from "./components/pro/pro-management/pro/add-pro/add-pro.component";
+import {UpdateProfilComponent} from "./components/pro/update-profil/update-profil.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'pro-management', component: ProListComponent,canActivate: [AuthenticatorGuardService] },
   {path: 'add-pro', component: AddProComponent, canActivate: [AuthenticatorGuardService]},
   {path: 'edit-pro/:id', component: EditProComponent, canActivate: [AuthenticatorGuardService]},
+  {path: 'updateProfil', component: UpdateProfilComponent, canActivate: [AuthenticatorGuardService]},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

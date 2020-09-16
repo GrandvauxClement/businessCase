@@ -41,8 +41,8 @@ export class ProService {
       );
   }
 
-  getGarageByIdPro(idpro: number, urlGarage: string): Observable<Garages[]> {
-    return this.http.get<Garages[]>(this.apiURL +'/'+{idpro}+'/garages/'+{urlGarage}+'/cars')
+  getGarageByIdPro(idpro: number): Observable<Garages[]> {
+    return this.http.get<Garages[]>(this.apiURL +'/'+idpro+'/garages')
       .pipe(
         retry(1),
         catchError(this.handleError)
